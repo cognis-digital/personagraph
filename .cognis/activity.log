@@ -38,3 +38,4 @@
 2026-03-30T09:51:21  docs: ELI5 pass
 2024-06-08T11:47:37  ci(detect): guard against ReDoS in patterns
 2024-06-23T18:04:44  docs(output): add a fast path for the common case
+2024-07-08T13:21:51  perf(docs): add color + severity icons
