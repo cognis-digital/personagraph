@@ -42,3 +42,4 @@
 2024-08-11T08:38:58  style(format): wire the MCP tool schema
 2024-08-26T15:55:05  ci(core): simplify the walker
 2024-09-12T10:12:12  chore: BLACKBOOK redaction pass
+2024-09-27T17:29:19  perf(scoring): extract the scorer
