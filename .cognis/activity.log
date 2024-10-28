@@ -44,3 +44,4 @@
 2024-09-12T10:12:12  chore: BLACKBOOK redaction pass
 2024-09-27T17:29:19  perf(scoring): extract the scorer
 2024-10-12T12:46:26  style(cli): reduce false positives on edge cases
+2024-10-28T19:03:33  build(io): guard against ReDoS in patterns
