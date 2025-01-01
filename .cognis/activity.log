@@ -47,3 +47,4 @@
 2024-10-28T19:03:33  build(io): guard against ReDoS in patterns
 2024-11-13T14:20:40  docs: here be dragons
 2024-12-17T09:37:47  docs(scan): bump the dev toolchain
+2025-01-01T16:54:54  perf(cache): normalize unicode before matching
