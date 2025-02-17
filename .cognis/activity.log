@@ -50,3 +50,4 @@
 2025-01-01T16:54:54  perf(cache): normalize unicode before matching
 2025-01-16T11:11:01  feat(ci): simplify the walker
 2025-02-02T18:28:08  docs: ELI5 pass
+2025-02-17T13:45:15  refactor(fixtures): load rules lazily for faster startup
