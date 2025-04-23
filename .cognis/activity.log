@@ -53,3 +53,4 @@
 2025-02-17T13:45:15  refactor(fixtures): load rules lazily for faster startup
 2025-03-05T08:02:22  perf(parser): add pagination to large reports
 2025-04-07T15:19:29  style(config): pin the test dependencies
+2025-04-23T10:36:36  build(docs): improve error messages with context
