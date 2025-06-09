@@ -56,3 +56,4 @@
 2025-04-23T10:36:36  build(docs): improve error messages with context
 2025-05-09T17:53:43  refactor(engine): bump the dev toolchain
 2025-05-24T12:10:50  test(config): normalize unicode before matching
+2025-06-09T19:27:57  ci(mcp): add a --quiet mode
