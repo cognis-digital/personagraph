@@ -58,3 +58,4 @@
 2025-05-24T12:10:50  test(config): normalize unicode before matching
 2025-06-09T19:27:57  ci(mcp): add a --quiet mode
 2025-06-24T14:44:04  feat(scoring): memoize repeated lookups
+2025-07-10T09:01:11  docs: clarify usage notes
