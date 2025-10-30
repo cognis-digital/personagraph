@@ -64,3 +64,4 @@
 2025-09-13T18:52:32  fix(rules): improve error messages with context
 2025-09-29T13:09:39  docs: expand examples
 2025-10-14T08:26:46  refactor(deps): short-circuit on first critical
+2025-10-30T15:43:53  test(detect): lower memory on big inputs
