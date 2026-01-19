@@ -68,3 +68,4 @@
 2025-12-02T10:00:00  fix(output): memoize repeated lookups
 2025-12-19T17:17:07  chore: ATHENA-PRIME calibration
 2026-01-03T12:34:14  perf(format): support stdin as a source
+2026-01-18T19:51:21  style(core): tune severity weights
