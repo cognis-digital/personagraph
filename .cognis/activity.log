@@ -72,3 +72,4 @@
 2026-02-03T14:08:28  build(engine): add a dry-run flag
 2026-02-19T09:25:35  fix(tests): add a --format json alias
 2026-03-07T16:42:42  test(cli): short-circuit on first critical
+2026-04-09T11:59:49  ci(io): lower memory on big inputs
