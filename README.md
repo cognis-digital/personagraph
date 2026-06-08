@@ -6,51 +6,81 @@
 [![PyPI](https://img.shields.io/pypi/v/cognis-personagraph.svg)](https://pypi.org/project/cognis-personagraph/)
 [![CI](https://github.com/cognis-digital/personagraph/actions/workflows/ci.yml/badge.svg)](https://github.com/cognis-digital/personagraph/actions)
 [![License: COCL 1.0](https://img.shields.io/badge/License-COCL%201.0-2b6cb0.svg)](LICENSE)
+[![Suite](https://img.shields.io/badge/Cognis-Neural%20Suite-6b46c1.svg)](https://github.com/cognis-digital)
 
-Identity resolution dossier — username/email/phone cross-platform.
+**Identity resolution dossier — username/email/phone cross-platform.**
+
+*OSINT / SIGINT — open-source intelligence collection and correlation.*
+
+## Why
+
+Security and intelligence teams need identity resolution dossier — username/email/phone cross-platform without standing up heavyweight infrastructure. `personagraph` is single-purpose, scriptable, CI-friendly, and self-hostable: point it at a target, get prioritized findings in the format your workflow already speaks (table, JSON, SARIF, HTML), and wire it into agents over MCP when you want it autonomous.
 
 ## Install
 
 ```bash
 pip install cognis-personagraph
-```
-
-For local development from this repo:
-
-```bash
-pip install -e .
+# or, from this repo:
+pip install -e ".[dev]"
 ```
 
 ## Quick start
 
 ```bash
 personagraph --version
-personagraph scan demos/                          # run against bundled demo
+personagraph scan demos/                      # run against the bundled demo
 personagraph scan demos/ --format sarif --out r.sarif --fail-on high
-personagraph mcp                                   # start as MCP server (Cognis.Studio / Claude Desktop / Cursor)
+personagraph scan demos/ --format html --out report.html
+personagraph mcp                              # expose as an MCP server (Cognis.Studio / Claude Desktop / Cursor)
 ```
 
 ## Built-in demo scenarios
 
-Every scenario folder includes a `SCENARIO.md` describing what it represents and what findings to expect.
+Each scenario folder includes a `SCENARIO.md` describing the situation and the findings to expect.
 
-- `demos/01-employee-due-diligence/` — see [`SCENARIO.md`](demos/01-employee-due-diligence/SCENARIO.md)
-- `demos/02-impersonation-investigation/` — see [`SCENARIO.md`](demos/02-impersonation-investigation/SCENARIO.md)
-- `demos/03-vendor-vetting/` — see [`SCENARIO.md`](demos/03-vendor-vetting/SCENARIO.md)
+- [`demos/01-employee-due-diligence/`](demos/01-employee-due-diligence/SCENARIO.md)
+- [`demos/02-impersonation-investigation/`](demos/02-impersonation-investigation/SCENARIO.md)
+- [`demos/03-vendor-vetting/`](demos/03-vendor-vetting/SCENARIO.md)
+
+## Output formats
+
+- **Table** (default) — human-readable terminal summary
+- **JSON** — machine-readable findings for pipelines
+- **SARIF** — drops into GitHub code-scanning / IDE problem panes
+- **HTML** — shareable report with severity rollups
+
+## Credits / Built on
+
+Cognis composes and credits the best of open source. This tool builds on / interoperates with:
+
+- [`sherlock-project/sherlock`](https://github.com/sherlock-project/sherlock) — username enumeration
+- [`soxoj/maigret`](https://github.com/soxoj/maigret) — profile collection
+- [`megadose/holehe`](https://github.com/megadose/holehe) — email checks
+
+Missing a credit? Open a PR — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## How it fits the Cognis Neural Suite
 
-This tool is one of 52 in the [Cognis Neural Suite](https://github.com/cognis-digital). The full suite + launcher lives at:
+`personagraph` is one of **52 tools** in the [Cognis Neural Suite](https://github.com/cognis-digital). Every tool ships an MCP server, so [Cognis.Studio](https://cognis.studio) agents can call them as scoped capabilities.
 
-- Suite landing: https://cognis.digital
-- All 52 repos: https://github.com/cognis-digital
-- Cognis.Studio (Enterprise AI Workforce, MCP host): https://cognis.studio
+**Sibling tools in `osint`:** [`maritimeint`](https://github.com/cognis-digital/maritimeint), [`geolens`](https://github.com/cognis-digital/geolens), [`corpmap`](https://github.com/cognis-digital/corpmap), [`cryptotrace`](https://github.com/cognis-digital/cryptotrace), [`darkmirror`](https://github.com/cognis-digital/darkmirror)
 
-Every Suite tool ships an MCP server, so Cognis.Studio agents can call them as scoped capabilities.
+## Architecture & roadmap
+
+- Design notes: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+- Planned work: [`ROADMAP.md`](ROADMAP.md)
+
+## Contributing
+
+PRs, new detections, and demo scenarios are welcome under the collaboration-pull model. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
 
 ## License
 
-Source-available under the **Cognis Open Collaboration License (COCL) v1.0** — free for personal, internal-evaluation, research, and educational use; **commercial / production use requires a license** (licensing@cognis.digital). See [LICENSE](LICENSE) and [CONTRIBUTING.md](CONTRIBUTING.md) for the collaboration-pull model.
+Source-available under the **Cognis Open Collaboration License (COCL) v1.0** — free for personal, internal-evaluation, research, and educational use; **commercial / production use requires a license** (licensing@cognis.digital). See [LICENSE](LICENSE).
+
+## Responsible use
+
+This is dual-use security software. Use it only against systems, data, and identities you own or are explicitly authorized in writing to test, and in compliance with applicable law.
 
 ## About
 
