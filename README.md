@@ -36,7 +36,9 @@ Identity resolution dossier — username/email/phone cross-platform — without 
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Classify Identifier
+- ✅ Derive Usernames
+- ✅ Build Dossier
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
