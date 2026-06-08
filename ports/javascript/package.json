@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/personagraph",
+  "version": "0.2.0",
+  "description": "JavaScript port of personagraph (Cognis Neural Suite)",
+  "bin": {
+    "personagraph": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
