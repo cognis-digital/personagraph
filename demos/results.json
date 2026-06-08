@@ -1,0 +1,19 @@
+[
+  {
+    "site": "github",
+    "username": "target",
+    "found": true,
+    "breached": false
+  },
+  {
+    "site": "linkedin",
+    "username": "target",
+    "found": true,
+    "breached": true
+  },
+  {
+    "site": "unknown.example",
+    "username": "target",
+    "found": false
+  }
+]

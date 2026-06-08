@@ -1,0 +1,24 @@
+[
+  {
+    "site": "github",
+    "username": "vendor-tech-llc",
+    "found": true,
+    "breached": false,
+    "public_repos": 0
+  },
+  {
+    "site": "linkedin",
+    "username": "vendor-tech-llc",
+    "found": false
+  },
+  {
+    "site": "twitter",
+    "username": "vendor-tech-llc",
+    "found": false
+  },
+  {
+    "site": "crunchbase",
+    "username": "vendor-tech-llc",
+    "found": false
+  }
+]

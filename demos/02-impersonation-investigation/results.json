@@ -1,0 +1,29 @@
+[
+  {
+    "site": "twitter",
+    "username": "realceo_acme",
+    "found": true,
+    "breached": false,
+    "created": "2026-05-01",
+    "followers": 1500
+  },
+  {
+    "site": "twitter",
+    "username": "acme_ceo_official",
+    "found": true,
+    "breached": false,
+    "created": "2018-03-15",
+    "followers": 52000
+  },
+  {
+    "site": "linkedin",
+    "username": "realceo_acme",
+    "found": false
+  },
+  {
+    "site": "instagram",
+    "username": "realceo_acme",
+    "found": true,
+    "breached": false
+  }
+]

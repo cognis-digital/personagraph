@@ -1,0 +1,35 @@
+[
+  {
+    "site": "github",
+    "username": "jsmith42",
+    "found": true,
+    "breached": false,
+    "repos": 12
+  },
+  {
+    "site": "linkedin",
+    "username": "jsmith42",
+    "found": true,
+    "breached": true,
+    "breach": "linkedin-2024"
+  },
+  {
+    "site": "stackoverflow",
+    "username": "jsmith42",
+    "found": true,
+    "breached": false,
+    "rep": "3.2k"
+  },
+  {
+    "site": "keybase",
+    "username": "jsmith42",
+    "found": false
+  },
+  {
+    "site": "twitter",
+    "username": "jsmith42",
+    "found": true,
+    "breached": true,
+    "breach": "twitter-2022"
+  }
+]
