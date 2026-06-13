@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import hashlib
 import re
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, asdict
 from typing import Dict, List, Optional
 
 # --- Platform catalog -------------------------------------------------------
