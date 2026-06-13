@@ -20,6 +20,32 @@ pip install cognis-personagraph
 personagraph scan .            # → prioritized findings in seconds
 ```
 
+## Usage — step by step
+
+`personagraph` builds a cross-platform identity-resolution dossier for a username, email, or phone number.
+
+1. **Install**:
+   ```bash
+   pip install -e .
+   personagraph --version
+   ```
+2. **Resolve** an identifier into a dossier (candidate accounts ranked by confidence):
+   ```bash
+   personagraph resolve jdoe
+   ```
+3. **List the platform catalog** to discover platform keys you can target:
+   ```bash
+   personagraph platforms
+   ```
+4. **Restrict to specific platforms** and emit JSON:
+   ```bash
+   personagraph resolve alice@corp.com --platform github --platform x --format json
+   ```
+5. **Automate** — capture the JSON dossier for downstream OSINT tooling:
+   ```bash
+   personagraph resolve +15551234567 --format json > dossier.json
+   ```
+
 ## Contents
 
 - [Why personagraph?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
