@@ -20,6 +20,12 @@ pip install "git+https://github.com/cognis-digital/personagraph.git"
 personagraph scan .            # → prioritized findings in seconds
 ```
 
+<!-- cognis:layman:start -->
+## What is this?
+
+Personagraph is a free command-line tool that helps you find all the online accounts tied to a single username, email address, or phone number. Give it an identifier, and it builds a ranked list of likely profiles across platforms like GitHub, Reddit, Instagram, and others — no account or API key required. The results come out as a clean table or machine-readable JSON, so you can use them directly in scripts or security pipelines. It is useful for security researchers, journalists, and investigators who need a quick, offline starting point for open-source identity research.
+<!-- cognis:layman:end -->
+
 ## Contents
 
 - [Why personagraph?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [Architecture](#architecture) · [AI stack](#ai-stack) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
@@ -45,6 +51,42 @@ Identity resolution dossier — username/email/phone cross-platform — without 
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:install:start -->
+## Install
+
+`personagraph` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/personagraph/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/personagraph/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/personagraph.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/personagraph.git"  # uv
+pip install "git+https://github.com/cognis-digital/personagraph.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/personagraph.git
+cd personagraph && pip install .
+```
+
+Then run:
+```sh
+personagraph --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
