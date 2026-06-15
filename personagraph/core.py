@@ -17,6 +17,12 @@ import re
 from dataclasses import dataclass, asdict
 from typing import Dict, List, Optional
 
+TOOL_NAME = "personagraph"
+TOOL_VERSION = "1.0.0"
+
+# Maximum identifier length accepted before we reject as unreasonable input.
+_MAX_IDENTIFIER_LEN = 320
+
 # --- Platform catalog -------------------------------------------------------
 # Each entry: key -> (display name, url template with {u}, category, base_weight)
 PLATFORMS: Dict[str, Dict[str, object]] = {
@@ -68,9 +74,15 @@ def classify_identifier(raw: str) -> Identifier:
     """Detect whether `raw` is an email, phone number, or username."""
     if raw is None:
         raise ValueError("identifier is required")
+    if not isinstance(raw, str):
+        raise ValueError(f"identifier must be a string, got {type(raw).__name__}")
     s = raw.strip()
     if not s:
         raise ValueError("identifier is empty")
+    if len(s) > _MAX_IDENTIFIER_LEN:
+        raise ValueError(
+            f"identifier is too long ({len(s)} chars); max {_MAX_IDENTIFIER_LEN}"
+        )
 
     if _EMAIL_RE.match(s):
         local, domain = s.rsplit("@", 1)
@@ -80,9 +92,16 @@ def classify_identifier(raw: str) -> Identifier:
     # Phone: strip formatting; if it's mostly digits and >=7 long, treat as phone.
     digits = re.sub(r"[^0-9]", "", s)
     cleaned = re.sub(r"[\s().+-]", "", s)
-    if len(digits) >= 7 and cleaned == digits or (s.startswith("+") and len(digits) >= 7):
-        return Identifier(raw=raw, kind="phone", normalized="+" + digits if s.startswith("+") else digits,
-                          local_part=digits)
+    _is_phone = (len(digits) >= 7 and cleaned == digits) or (
+        s.startswith("+") and len(digits) >= 7
+    )
+    if _is_phone:
+        return Identifier(
+            raw=raw,
+            kind="phone",
+            normalized="+" + digits if s.startswith("+") else digits,
+            local_part=digits,
+        )
 
     if _USERNAME_RE.match(s):
         return Identifier(raw=raw, kind="username", normalized=s.lower())
@@ -160,14 +179,26 @@ def _confidence(base_weight: float, seed_index: int, ident: Identifier, platform
 
 
 def build_dossier(raw: str, platforms: Optional[List[str]] = None) -> dict:
-    """Build a full identity-resolution dossier for `raw`."""
+    """Build a full identity-resolution dossier for `raw`.
+
+    ``platforms`` may be ``None`` (use all) or a non-empty list of platform
+    keys.  Passing an empty list is an error — use ``None`` to get all.
+    """
     ident = classify_identifier(raw)
     seeds = derive_usernames(ident)
-    keys = platforms or list(PLATFORMS.keys())
+    # Use None-sentinel rather than falsiness so an empty list is rejected.
+    if platforms is None:
+        keys = list(PLATFORMS.keys())
+    else:
+        if not isinstance(platforms, list):
+            raise ValueError("platforms must be a list or None")
+        if len(platforms) == 0:
+            raise ValueError("platforms list must not be empty; pass None to use all")
+        keys = platforms
 
     unknown = [k for k in keys if k not in PLATFORMS]
     if unknown:
-        raise ValueError(f"unknown platform(s): {', '.join(unknown)}")
+        raise ValueError(f"unknown platform(s): {', '.join(sorted(unknown))}")
 
     candidates: List[Candidate] = []
     for i, seed in enumerate(seeds):
