@@ -1,0 +1,3 @@
+$ personagraph-emit --version
+
+personagraph 0.1.0

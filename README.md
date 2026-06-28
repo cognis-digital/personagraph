@@ -20,6 +20,62 @@ pip install cognis-personagraph
 personagraph scan .            # → prioritized findings in seconds
 ```
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ personagraph-emit --version
+personagraph 0.1.0
+```
+
+```console
+$ personagraph-emit --help
+usage: personagraph [-h] [--version] {resolve,platforms} ...
+
+PERSONAGRAPH - cross-platform identity resolution dossier for a username,
+email, or phone number.
+
+positional arguments:
+  {resolve,platforms}
+    resolve            resolve an identifier into a dossier
+    platforms          list the supported platform catalog
+
+options:
+  -h, --help           show this help message and exit
+  --version            show program's version number and exit
+```
+
+> Blocks above are real `personagraph` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"feed": {
+"type": "STIX",
+"value": {
+"stix_bundle": {
+"bundle": [
+{
+"id": "12345",
+"type": "indicator",
+"name": "Suspicious Activity",
+"description": "Potential malicious activity detected.",
+"created_by_ref": "user1",
+"modified_by_ref": "user2"
+}
+]
+}
+}
+}
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 `personagraph` builds a cross-platform identity-resolution dossier for a username, email, or phone number.

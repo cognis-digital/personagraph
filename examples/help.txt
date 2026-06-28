@@ -1,0 +1,15 @@
+$ personagraph-emit --help
+
+usage: personagraph [-h] [--version] {resolve,platforms} ...
+
+PERSONAGRAPH - cross-platform identity resolution dossier for a username,
+email, or phone number.
+
+positional arguments:
+  {resolve,platforms}
+    resolve            resolve an identifier into a dossier
+    platforms          list the supported platform catalog
+
+options:
+  -h, --help           show this help message and exit
+  --version            show program's version number and exit
